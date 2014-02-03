@@ -1,0 +1,8 @@
+- title "Novo <%= singular_name.titleize %>"
+%h1 Novo <%= singular_name.titleize %>
+
+<%= render_form %>
+
+<%- if action? :index -%>
+%p= link_to "Ver todos", <%= plural_name %>_path, :class => "small secondary button"
+<%- end -%>

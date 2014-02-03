@@ -1,0 +1,18 @@
+- title "<%= singular_name.titleize %>"
+
+<%- for attribute in attributes -%>
+%p
+  %strong <%= attribute.column.human_name.titleize %>:
+  =h @<%= singular_name %>.<%= attribute.name %>
+<%- end -%>
+
+%p
+  <%- if action? :edit -%>
+  = link_to "Editar", edit_<%= singular_name %>_path(@<%= singular_name %>, :class => "small secondary button")
+  <%- end -%>
+  <%- if action? :destroy -%>
+  = link_to "Deletar", @<%= singular_name %>, :confirm => 'Are you sure?', :method => :delete, :class => "small secondary button"
+  <%- end -%>
+  <%- if action? :index -%>
+  = link_to "Ver todos", <%= plural_name %>_path, :class => "small secondary button"
+  <%- end -%>

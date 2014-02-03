@@ -1,0 +1,10 @@
+- form_for @<%= singular_name %> do |f|
+  .large-12.columns.alert-box.alert
+    = f.error_messages
+  <%- for attribute in attributes -%>
+  %p
+    = f.label :<%= attribute.name %>
+    = f.<%= attribute.field_type %> :<%= attribute.name %>
+  <%- end -%>
+  %p
+    = f.submit "Salvar", :class => "button"

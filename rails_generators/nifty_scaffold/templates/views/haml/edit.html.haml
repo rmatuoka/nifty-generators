@@ -1,0 +1,16 @@
+- title "Editar <%= singular_name.titleize %>"
+%h1 Editar <%= singular_name.titleize %>
+
+<%= render_form %>
+
+<%- if actions? :show, :index -%>
+%p
+  <%- if action? :show -%>
+  = link_to "Visualizar", <%= singular_name %>_path(@<%= singular_name %>, :class => "small secondary button")
+  <%- end -%>
+  
+  <%- if action? :index -%>
+  = link_to "Ver todos", <%= plural_name %>_path, :class => "small secondary button"
+  <%- end -%>
+
+<%- end -%>
